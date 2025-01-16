@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'currency_converter.urls'
+ROOT_URLCONF = 'currency_converter.currency_converter.urls'
 
 TEMPLATES = [
     {
