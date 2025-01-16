@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'currency_converter.cconverter',
+    'currency_converter.cconverter.apps.CconverterConfig'
 ]
 
 MIDDLEWARE = [
