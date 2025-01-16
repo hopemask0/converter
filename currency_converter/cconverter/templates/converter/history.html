@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>История</title>
+</head>
+<body>
+<h2>История переводов</h2>
+<ul>
+  {% for conversion in conversions %}
+    <li>{{ conversion.source_currency }} в {{ conversion.target_currency }}: {{ conversion.amount }} -> {{ conversion.converted_amount }} {{ conversion.timestamp }}</li>
+  {% endfor %}
+</ul>
+</body>
+</html>
