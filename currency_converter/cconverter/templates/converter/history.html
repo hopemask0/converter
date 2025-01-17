@@ -3,13 +3,90 @@
 <head>
     <meta charset="UTF-8">
     <title>История</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        .history-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+        .history-list li {
+            background-color: #f9f9f9;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .history-list li strong {
+            color: #333;
+        }
+        .history-list li em {
+            color: #777;
+            font-size: 0.9em;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a button {
+            background-color: #008CBA;
+        }
+        a button:hover {
+            background-color: #007B9E;
+        }
+    </style>
 </head>
 <body>
-<h2>История переводов</h2>
-<ul>
-  {% for conversion in conversions %}
-    <li>{{ conversion.source_currency }} в {{ conversion.target_currency }}: {{ conversion.amount }} -> {{ conversion.converted_amount }} {{ conversion.timestamp }}</li>
-  {% endfor %}
-</ul>
+    <div class="container">
+        <h1>История переводов</h1>
+        <ul class="history-list">
+            {% for conversion in conversions %}
+                <li>
+                    <strong>{{ conversion.source_currency }}</strong> в 
+                    <strong>{{ conversion.target_currency }}</strong>: 
+                    {{ conversion.amount }} -> {{ conversion.converted_amount }} 
+                    <em>({{ conversion.timestamp }})</em>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <!-- Кнопка "Назад" -->
+        <a href="{% url 'convert_currency' %}">
+            <button>Назад</button>
+        </a>
+    </div>
 </body>
 </html>
