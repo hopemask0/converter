@@ -23,6 +23,7 @@ def convert_currency(request):
         form = ConversionForm()
     return render(request, 'converter/convert.html', {'form': form})
 
+
 def history(request):
     conversions = ConversionHistory.objects.all().order_by('-timestamp')
     return render(request, 'converter/history.html', {'conversions': conversions})
