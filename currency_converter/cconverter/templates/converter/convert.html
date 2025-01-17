@@ -3,16 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <title>Перевод</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        form p {
+            margin: 10px 0;
+        }
+        form label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        form input, form select {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        a {
+            text-decoration: none;
+        }
+        a button {
+            background-color: #008CBA;
+        }
+        a button:hover {
+            background-color: #007B9E;
+        }
+    </style>
 </head>
 <body>
-<form method="post">
-  {% csrf_token %}
-  {{ form.as_p }}
-  <button type="submit">Перевести</button>
-</form>
-
-<a href="{% url 'history' %}">
-  <button>История</button>
-</a>
+    <div class="container">
+        <h1>Конвертер валют</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Перевести</button>
+        </form>
+        <br>
+        <a href="{% url 'history' %}">
+            <button>История</button>
+        </a>
+    </div>
 </body>
 </html>
